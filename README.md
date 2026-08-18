@@ -39,6 +39,11 @@ Webhook verification & persistence:
 
 - The fake platform sends signed delivery webhooks (HMAC-SHA256). The app verifies signatures and flips queued posts to `published`. State persists in `db.json`.
 
+Tests & docs:
+
+- Integration-style tests live in `test/run-tests.js` and validate idempotency, 429 handling, webhook verification, and image/caption behavior. This README documents how to run the checks.
+
+
 
 
 
