@@ -1,0 +1,15 @@
+:root{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#111}
+body{margin:0;padding:16px;background:#f6f7fb}
+header{max-width:980px;margin:0 auto 16px}
+h1{margin:0;font-size:24px}
+.subtitle{margin:4px 0 0;color:#666}
+main{max-width:980px;margin:16px auto;display:grid;grid-template-columns:1fr;gap:12px}
+.card{background:#fff;padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+label{display:block;margin:8px 0}
+input,textarea,select{width:100%;padding:8px;border:1px solid #ddd;border-radius:4px}
+button{padding:8px 12px;border:0;background:#2563eb;color:#fff;border-radius:6px;cursor:pointer}
+.platforms{display:flex;gap:12px}
+.platform{flex:1}
+.image img{max-width:100%;height:auto;border-radius:6px;background:#eee}
+.result{background:#0f172a;color:#fff;padding:8px;border-radius:6px;overflow:auto}
+.status{margin-top:8px;font-weight:600}

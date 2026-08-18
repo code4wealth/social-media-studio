@@ -52,6 +52,40 @@ async function startApp({port=4000, fakeUrl='http://localhost:4001', webhookSecr
       res.writeHead(200,{'Content-Type':'application/json'}); return res.end(JSON.stringify(loadDB()));
     }
 
+    // Serve dashboard root
+    if (req.method === 'GET' && (url.pathname === '/' || url.pathname === '/index.html')){
+      try{
+        const file = fs.readFileSync(path.join(__dirname, '..', 'public', 'index.html'), 'utf8');
+        res.writeHead(200, {'Content-Type':'text/html'}); return res.end(file);
+      }catch(e){ res.writeHead(500); return res.end('dashboard not found'); }
+    }
+
+    // Serve static files under /static/
+    if (req.method === 'GET' && url.pathname.startsWith('/static/')){
+      const rel = url.pathname.replace('/static/','');
+      const p = path.join(__dirname, '..', 'public', rel);
+      if (fs.existsSync(p)){
+        const ext = path.extname(p).toLowerCase();
+        const types = {'.js':'application/javascript','.css':'text/css','.png':'image/png','.jpg':'image/jpeg'};
+        res.writeHead(200, {'Content-Type': types[ext] || 'application/octet-stream'});
+        return res.end(fs.readFileSync(p));
+      }
+    }
+
+    // Publish endpoint: use existing SocialPublisher adapter
+    if (req.method === 'POST' && url.pathname === '/publish'){
+      const body = await jsonBody(req);
+      const {platform, post, imageUrl, caption, idempotencyKey, simulate429} = body;
+      try{
+        const {SocialPublisher} = require('./publisher');
+        // acquire token from fake platform
+        const tokenReq = await new Promise((resolve)=>{ const p = new URL('http://localhost:4001/oauth/token'); const r = require('http').request({hostname:p.hostname, port:p.port, path:p.pathname, method:'POST'}, (resp)=>{ let s=''; resp.on('data',c=>s+=c); resp.on('end', ()=>resolve(JSON.parse(s||'{}'))); }); r.end(); });
+        const publisher = new (require('./publisher').SocialPublisher)({platformName: platform, baseUrl: 'http://localhost:4001', token: tokenReq.access_token});
+        const result = await publisher.publish({post, imageUrl, caption, idempotencyKey, simulate429});
+        res.writeHead(200, {'Content-Type':'application/json'}); return res.end(JSON.stringify(result));
+      }catch(e){ res.writeHead(500, {'Content-Type':'application/json'}); return res.end(JSON.stringify({error: e.message})); }
+    }
+
     res.writeHead(404); res.end('not found');
   });
 

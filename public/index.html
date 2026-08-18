@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Social Media Studio</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <script defer src="/static/script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Social Media Studio</h1>
+    <p class="subtitle">AI-powered multi-platform social publishing demo</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Create Campaign</h2>
+      <label>Title<input id="title" value="AI for a Greener Future"></label>
+      <label>Content<textarea id="content">AI can help organizations reduce waste, optimize energy consumption, and make more sustainable decisions.</textarea></label>
+      <label>Platforms
+        <select id="platforms" multiple>
+          <option value="instagram" selected>Instagram</option>
+          <option value="linkedin" selected>LinkedIn</option>
+        </select>
+      </label>
+      <button id="create">Create Campaign</button>
+      <pre id="campaignResult" class="result"></pre>
+    </section>
+
+    <section class="card" id="generated">
+      <h2>Generated Content</h2>
+      <div class="platforms">
+        <div class="platform card" id="instagramCard">
+          <h3>Instagram</h3>
+          <div class="caption"></div>
+          <div class="image"><img id="img-inst" alt="instagram variant"/></div>
+          <div class="status" id="status-inst">—</div>
+          <button id="publish-inst">Publish Instagram</button>
+        </div>
+        <div class="platform card" id="linkedinCard">
+          <h3>LinkedIn</h3>
+          <div class="caption"></div>
+          <div class="image"><img id="img-link" alt="linkedin variant"/></div>
+          <div class="status" id="status-link">—</div>
+          <button id="publish-link">Publish LinkedIn</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Reliability Demo</h2>
+      <button id="testIdem">Test Idempotency</button>
+      <button id="test429">Test 429 Retry</button>
+      <button id="testHook">Test Webhook Security</button>
+      <pre id="reliabilityResult" class="result"></pre>
+    </section>
+
+    <section class="card">
+      <h2>Live Status</h2>
+      <button id="refreshStatus">Refresh Status</button>
+      <pre id="status" class="result"></pre>
+    </section>
+  </main>
+
+</body>
+</html>
