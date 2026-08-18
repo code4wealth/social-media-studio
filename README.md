@@ -43,6 +43,9 @@ Tests & docs:
 
 - Integration-style tests live in `test/run-tests.js` and validate idempotency, 429 handling, webhook verification, and image/caption behavior. This README documents how to run the checks.
 
+Prepared for submission.
+
+
 
 
 
