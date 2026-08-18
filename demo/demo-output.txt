@@ -1,0 +1,26 @@
+Demo: starting end-to-end flow
+Token acquired: true
+Campaign created: {
+  id: 'entry_14d9189f9489',
+  title: 'AI for a Greener Future',
+  body: 'AI can help organizations reduce waste, optimize energy consumption, and make more sustainable decisions.',
+  url: 'http://example.com/ai',
+  status: 'queued',
+  scheduledAt: 1787073433141
+}
+Caption Instagram: AI for a Greener Future
+Learn practical steps to reduce emissions. Stunning visuals — swipe to learn.
+http://example.com/ai
+Caption LinkedIn: AI for a Greener Future
+Learn practical steps to reduce emissions. Industry insights and long-form takeaways.
+http://example.com/ai
+Image variants written to C:\workspace\demo
+Publish response: { ok: true, id: 'post_e1731ea2c319' }
+Publish duplicate response: { ok: true, id: 'post_e1731ea2c319', duplicate: true }
+Triggering 429 handling (publisher will retry):
+Result after 429+retry: { ok: true, id: 'post_0629cb3ab840' }
+Raw 429 attempt status: 200 headers: undefined
+Valid webhook response: 200 { ok: true }
+Forged webhook response status (expected 400): 400
+Status endpoint returned: {"posts":[{"id":"entry_465a2545e897","title":"AI for a Greener Future","body":"AI can help organizations reduce waste, optimize energy consumption, and make more sustainable decisions.","url":"http://example.com/ai","status":"published","scheduledAt":1787073418572},{"id":"entry_14d9189f9489","title":"AI for a Greener Future","body":"AI can help organizations reduce waste, optimize energy consumption, and make more sustainable decisions.","url":"http://example.com/ai","status":"queued","scheduledAt":1787073433141}],"jobs":[]}
+Sample result saved to demo/sample-result.json

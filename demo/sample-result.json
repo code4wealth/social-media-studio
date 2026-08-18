@@ -1,0 +1,23 @@
+{
+  "campaign": {
+    "id": "entry_14d9189f9489",
+    "title": "AI for a Greener Future",
+    "body": "AI can help organizations reduce waste, optimize energy consumption, and make more sustainable decisions.",
+    "url": "http://example.com/ai",
+    "status": "queued",
+    "scheduledAt": 1787073433141
+  },
+  "publish": {
+    "ok": true,
+    "id": "post_e1731ea2c319"
+  },
+  "duplicate": {
+    "ok": true,
+    "id": "post_e1731ea2c319",
+    "duplicate": true
+  },
+  "after429": {
+    "ok": true,
+    "id": "post_0629cb3ab840"
+  }
+}
