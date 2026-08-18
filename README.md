@@ -22,3 +22,8 @@ npm start
 Notes:
 - The fake platform runs on port 4001; the app runs on 4000.
 - Persistence is a tiny `db.json` file.
+
+Publishing adapter:
+
+- The submission includes a `SocialPublisher` adapter (`src/publisher.js`) that communicates with the fake platform via HTTP, implements idempotency keys, and honors `Retry-After` on `429`.
+
