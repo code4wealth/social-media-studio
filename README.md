@@ -31,4 +31,9 @@ Idempotency & retry handling:
 
 - The fake platform supports idempotency keys; the adapter resubmits after `Retry-After` periods and will not double-post for the same idempotency key.
 
+Image & caption generation:
+
+- `src/image.js` contains a variant generator (stubbed to avoid heavy deps) that produces correctly-sized artifacts. `src/caption.js` composes captions from fragments plus platform-specific fragments.
+
+
 
