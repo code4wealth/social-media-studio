@@ -27,3 +27,8 @@ Publishing adapter:
 
 - The submission includes a `SocialPublisher` adapter (`src/publisher.js`) that communicates with the fake platform via HTTP, implements idempotency keys, and honors `Retry-After` on `429`.
 
+Idempotency & retry handling:
+
+- The fake platform supports idempotency keys; the adapter resubmits after `Retry-After` periods and will not double-post for the same idempotency key.
+
+
