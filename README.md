@@ -35,5 +35,10 @@ Image & caption generation:
 
 - `src/image.js` contains a variant generator (stubbed to avoid heavy deps) that produces correctly-sized artifacts. `src/caption.js` composes captions from fragments plus platform-specific fragments.
 
+Webhook verification & persistence:
+
+- The fake platform sends signed delivery webhooks (HMAC-SHA256). The app verifies signatures and flips queued posts to `published`. State persists in `db.json`.
+
+
 
 
